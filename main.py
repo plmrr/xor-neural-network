@@ -83,7 +83,7 @@ def plots():
 
     x_, y_ = np.meshgrid(x_range, y_range, indexing='xy')
     z = np.array([[classification(x, y) for x in x_range] for y in y_range])
-    plt.contourf(x_, y_, z, colors=['red'], alpha=0.5)
+    plt.contourf(x_.astype(float), y_.astype(float), z.astype(float), colors=['red'], alpha=0.5)
     plt.show()
 
 
@@ -91,7 +91,7 @@ input_data = [[0, 0], [0, 1], [1, 0], [1, 1]]
 output_data = [0, 1, 1, 0]
 
 var = 0.5
-learning_rate = 0.05
+learning_rate = 0.01
 epochs = 5001
 
 w = np.array([[random.uniform(-var, var), random.uniform(-var, var)], [random.uniform(-var, var), random.uniform(-var, var)]])
